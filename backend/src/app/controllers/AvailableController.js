@@ -2,7 +2,6 @@ import Appointment from '../models/Appointment';
 
 import { startOfDay, endOfDay, setHours, setMinutes, setSeconds, format, isAfter } from 'date-fns';
 import { Op } from 'sequelize';
-import { isValid } from 'ipaddr.js';
 
 class AvailableController {
   async index(req, res){
@@ -42,6 +41,7 @@ class AvailableController {
       '17:00',
       '18:00',
       '19:00',
+      '20:00'
     ];
 
     const available = schedule.map( time => {

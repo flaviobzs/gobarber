@@ -2,6 +2,7 @@
 import * as Yup from 'yup';
 
 import User from '../models/User';
+import File from '../models/File';
 
 class UserController {
   async store(req, res){
@@ -19,6 +20,7 @@ class UserController {
     
     //verificação do campo que não pode ser igual
     const userExists = await User.findOne({ where:{email: req.body.email}});
+
     if(userExists){
       return res.status(400).json({error: 'User already exists.'});
     }
@@ -58,6 +60,7 @@ class UserController {
     }
 
     const { email, oldPassword} = req.body;
+    
     //buscar usuario para edição
     const user = await User.findByPk(req.userId);
 

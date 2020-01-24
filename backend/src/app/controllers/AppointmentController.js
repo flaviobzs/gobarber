@@ -115,6 +115,12 @@ class AppointmentController {
       user: provider_id,
     });
 
+    const ownerSocket = req.connectedUsers[provider_id];
+
+    if (ownerSocket) {
+      req.io.to(ownerSocket).emit('notification', notification);
+    }
+
     return res.json(appointment);
   }
 

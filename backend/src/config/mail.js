@@ -7,7 +7,7 @@ export default {
     pass: process.env.MAIL_PASS,
   },
   default: {
-    from: 'Flávio BS <noreply@gobraber.com>',
+    from: 'Flávio BS <noreply@gobarber.com>',
   },
 };
 
